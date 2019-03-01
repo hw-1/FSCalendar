@@ -215,6 +215,18 @@
     return number;
 }
 
++ (NSInteger)numberOfRowsInMonth:(NSDate *)month
+{
+    NSCalendar  * _gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *firstDayOfMonth = [_gregorian fs_firstDayOfMonth:month];
+    NSInteger weekdayOfFirstDay = [_gregorian component:NSCalendarUnitWeekday fromDate:firstDayOfMonth];
+    NSInteger numberOfDaysInMonth = [_gregorian fs_numberOfDaysInMonth:month];
+    NSInteger numberOfPlaceholdersForPrev = ((weekdayOfFirstDay - _gregorian.firstWeekday) + 7) % 7;
+    NSInteger headDayCount = numberOfDaysInMonth + numberOfPlaceholdersForPrev;
+    NSInteger numberOfRows = (headDayCount/7) + (headDayCount%7>0);
+    return numberOfRows;
+}
+
 - (NSInteger)numberOfRowsInMonth:(NSDate *)month
 {
     if (!month) return 0;

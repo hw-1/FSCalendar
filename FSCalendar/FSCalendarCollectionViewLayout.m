@@ -543,7 +543,7 @@
         case 4:
         case 5: {
             CGFloat contentHeight = self.collectionView.fs_height - self.sectionInsets.top - self.sectionInsets.bottom;
-            CGFloat rowSpan = contentHeight/totalRows;
+            CGFloat rowSpan =contentHeight/6;
             return (row + 0.5) * rowSpan - height * 0.5 + self.sectionInsets.top;
         }
         case 6:

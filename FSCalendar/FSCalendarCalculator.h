@@ -38,6 +38,7 @@ typedef struct FSCalendarCoordinate FSCalendarCoordinate;
 - (NSDate *)monthHeadForSection:(NSInteger)section;
 
 - (NSInteger)numberOfHeadPlaceholdersForMonth:(NSDate *)month;
++ (NSInteger)numberOfRowsInMonth:(NSDate *)month;
 - (NSInteger)numberOfRowsInMonth:(NSDate *)month;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
